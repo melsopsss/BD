@@ -1,0 +1,21 @@
+import sqlite3
+
+b = 0
+a = 0
+conn = sqlite3.connect('calls.sqlite3')
+cursor = conn.cursor()
+
+cursor.execute("SELECT CallTimeStart FROM calls")
+
+while True:
+    row = cursor.fetchone()
+
+    if row == None:
+        break
+    if "2016-01-01" in row:
+        a = a + 1
+    else: b = b + 1
+
+print(a)
+print(b)
+conn.closeasd
